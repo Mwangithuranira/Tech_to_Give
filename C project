@@ -1,0 +1,24 @@
+// c program that counts the number of vowels in a sentence.
+#include <iostream>
+#include <cctype> // for tolower
+#include <cstring> // for strlen
+
+int count_vowels(const char *string) {
+    int count = 0;
+    for (const char *p = string; *p != '\0'; p++) {
+        char ch = tolower(*p);
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    char str[100];
+    std::cout << "Enter a sentence: ";
+    std::cin.getline(str, sizeof(str));
+    int vowel_count = count_vowels(str);
+    std::cout << "Number of vowels: " << vowel_count << std::endl;
+    return 0;
+}
